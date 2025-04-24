@@ -1,18 +1,37 @@
+const itemsList = document.querySelector("ul")
+const itemInput = document.querySelector("input")
+const itemBtn = document.querySelector("button")
 
-    const x = 1;
+function handleBtnClick(e) {
+        const inputValue = itemInput.value
+        itemInput.value = ''
+        itemInput.focus()
+        const itemParent = document.createElement("li")
+        const itemText = document.createElement("span")
+        const itemDelete = document.createElement("button")
+        itemParent.appendChild(itemText)
+        itemParent.appendChild(itemDelete)
+        itemText.textContent = inputValue
+        itemDelete.textContent = "Delete"
 
-    function a() {
-      const y = 2;
-      output(z)
-    }
+        itemsList.appendChild(itemParent)
 
-    function b() {
-      const z = 3;
-      output(y)
-    }
+        itemDelete.addEventListener('click', (e) => {
+          e.target.parentNode.remove()
+        })
+}
 
-    function output(value) {
-      const para = document.createElement('p');
-      document.body.appendChild(para);
-      para.textContent = `Value: ${value}`;
-    }
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM content event!");
+})
+document.addEventListener("load", () => {
+  console.log("Page Load event!");
+})
+document.addEventListener("beforeunload", () => {
+  confirm("Do you want to leave?")
+  console.log("Page before unload event!");
+})
+document.addEventListener("unload", () => {
+  console.log("Page unload event!");
+})
+itemBtn.addEventListener('click', handleBtnClick)
