@@ -1,0 +1,25 @@
+main > div {
+    background-color: gold;
+    width: 150px;
+    height: 150px;
+}
+main > div > div {
+    background-color: aquamarine;
+    width: 100px;
+    height: 100px;
+}
+/* Only the div with the classes "child group2" will get selected by this */
+.group1 + div {
+    /* Our cool CSS */
+    background-color: pink;
+  }
+  
+  /* Only the div with the classes "child group3" will get selected by this */
+.group1 + div + div {
+    /* More cool CSS */
+    background-color: bisque;
+}
+.group1 ~ div {
+    /* Our cool CSS */
+    margin: 3rem 1rem;
+}
